@@ -1,12 +1,19 @@
-import { sql } from '@vercel/postgres'
-import { Problem } from "@/data/definitions";
+'use server'
+
+import 'dotenv/config';
+import { createClient } from './supabaseserver';
 
 export async function fetchProblems() {
-    try {
-        const data = await sql.query<Problem>(`SELECT * FROM cqnnect-data`);
-        console.log(data);
-        return data.rows;
-    } catch (error) {
-        console.error(error);
-    }
+    const supabase = await createClient()
+    const { data: problems } = await supabase.from("problems").select();
+
+    return problems;
+}
+
+export async function fetchProblemsFiltered(query: string) {
+
+    const supabase = await createClient()
+    const { data: problems } = await supabase.from("problems").select().ilike("problem", "%" + query + "%");
+
+    return problems;
 }

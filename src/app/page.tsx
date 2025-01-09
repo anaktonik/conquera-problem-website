@@ -1,7 +1,6 @@
 // import Image from "next/image";
 import Topnav from "@/app/topnav";
 import ProblemSubmit from "@/app/problemsubmit";
-import ProblemSection from "@/app/problemsection";
 
 export default function Home() {
     return (
@@ -12,7 +11,6 @@ export default function Home() {
                     <ProblemSubmit/>
                 </div>
             </div>
-            <ProblemSection/>
             <footer
                 className="row-start-3 flex flex-wrap items-center justify-center">
                 Footer

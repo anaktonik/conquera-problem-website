@@ -1,9 +1,13 @@
-import ProblemDisp from "@/app/problem";
+'use client'
+
+import ProblemDisp from "@/app/problemdisp";
+import {useState} from "react";
 
 export default function ProblemSection() {
     return(
         <div className="flex flex-col justify-center items-center bg-white h-screen">
-            {ProblemDisp({uuid: "1", problem: "Naber", poser: "Melih", time: Date.now(), solution: "Okey"})}
+
+            {ProblemDisp("wise", 1)}
         </div>
     )
 }
